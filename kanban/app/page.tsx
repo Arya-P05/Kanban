@@ -47,7 +47,7 @@ const Board = () => {
 };
 
 const Column = ({ title, headingColour, column, cards, setCards }) => {
-  return <div></div>;
+  return <div className="width-56 shrink-0"></div>;
 };
 
 export default Kanban;
