@@ -19,6 +19,14 @@ This is an interactive Kanban board built with React, TypeScript, and Framer Mot
 - **React Icons**: UI icons.
 - **Tailwind CSS**: Modern styling.
 
+## Technologies
+
+- **React**: UI components.
+- **TypeScript**: Strong typing.
+- **Framer Motion**: Smooth animations.
+- **React Icons**: UI icons.
+- **Tailwind CSS**: Modern styling.
+
 ---
 
 For any questions or suggestions, feel free to create an issue in the repository.
