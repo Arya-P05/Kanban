@@ -46,15 +46,35 @@ const Board = () => {
   );
 };
 
-const Column = ({ title, headingColour, column, cards, setCards }) => {
-  const [active, setActive] = useState(false);
+type Card = {
+  title: string;
+  id: string;
+  column: string;
+};
+
+type ColumnProps = {
+  title: string;
+  headingColour: string;
+  column: string;
+  cards: Card[];
+  setCards: React.Dispatch<React.SetStateAction<Card[]>>;
+};
+
+const Column = ({
+  title,
+  headingColour,
+  column,
+  cards,
+  setCards,
+}: ColumnProps) => {
+  const [active, setActive] = useState(true);
 
   const filteredCards = cards.filter((card) => card.column === column);
 
   return (
     <div className="w-56 shrink-0">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className={`font-medium ${headingColour}`}>{title}</h3>
+        <h3 className={`font-medium ${headingColor}`}>{title}</h3>
         <span className="rounded text-sm text-neutral-400">
           {filteredCards.length}
         </span>
@@ -72,10 +92,10 @@ const Column = ({ title, headingColour, column, cards, setCards }) => {
   );
 };
 
-const Card = ({ title, id, column }) => {
+const Card = ({ title, id, column }: Card) => {
   return (
     <>
-      <div>
+      <div className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing">
         <p className="text-sm text-neutral-100">{title}</p>
       </div>
     </>
