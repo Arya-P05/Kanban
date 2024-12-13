@@ -58,6 +58,12 @@ This is an interactive Kanban board built with React, TypeScript, and Framer Mot
 2. **Move Tasks**: Drag between or within columns.
 3. **Delete Tasks**: Drag tasks to the "Burn Barrel."
 
+## Customization
+
+- **Default Tasks**: Update the `DEFAULT_TEAMS` array.
+- **Styling**: Edit Tailwind CSS classes.
+- **Columns**: Add columns in `Board`.
+
 ---
 
 For any questions or suggestions, feel free to create an issue in the repository.
