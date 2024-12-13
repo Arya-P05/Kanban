@@ -63,8 +63,22 @@ const Column = ({ title, headingColour, column, cards, setCards }) => {
         className={`h-full w-full transition-colors ${
           active ? "bg-neutral-800/50" : "bg-neutral-800/0"
         }`}
-      ></div>
+      >
+        {filteredCards.map((card) => {
+          return <Card key={card.id} {...card} />;
+        })}
+      </div>
     </div>
+  );
+};
+
+const Card = ({ title, id, column }) => {
+  return (
+    <>
+      <div>
+        <p className="text-sm text-neutral-100">{title}</p>
+      </div>
+    </>
   );
 };
 
