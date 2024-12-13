@@ -87,6 +87,8 @@ const Column = ({
         {filteredCards.map((card) => {
           return <Card key={card.id} {...card} />;
         })}
+
+        <DropIndicator beforeId={"-1"} column={column} />
       </div>
     </div>
   );
@@ -118,7 +120,7 @@ const DropIndicator = ({
     <div
       data-before={beforeId || "-1"}
       data-column={column}
-      className="my-0.5 h-0.5 w-full bg-violet-400 opacity-100"
+      className="my-0.5 h-0.5 w-full bg-violet-400 opacity-0"
     ></div>
   );
 };
