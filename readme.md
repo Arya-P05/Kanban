@@ -64,6 +64,13 @@ This is an interactive Kanban board built with React, TypeScript, and Framer Mot
 - **Styling**: Edit Tailwind CSS classes.
 - **Columns**: Add columns in `Board`.
 
+## Future Plans
+
+- **Save Tasks**: Use local storage or a database. (currently working on making it persist on relaods!!)
+- **User Accounts**: Support multiple users.
+- **Custom Columns**: Allow creation and renaming.
+- **Enhanced Animations**: Add advanced effects.
+
 ---
 
 For any questions or suggestions, feel free to create an issue in the repository.
