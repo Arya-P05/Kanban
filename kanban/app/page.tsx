@@ -67,14 +67,14 @@ const Column = ({
   cards,
   setCards,
 }: ColumnProps) => {
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
 
   const filteredCards = cards.filter((card) => card.column === column);
 
   return (
     <div className="w-56 shrink-0">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className={`font-medium ${headingColor}`}>{title}</h3>
+        <h3 className={`font-medium ${headingColour}`}>{title}</h3>
         <span className="rounded text-sm text-neutral-400">
           {filteredCards.length}
         </span>
@@ -95,10 +95,31 @@ const Column = ({
 const Card = ({ title, id, column }: Card) => {
   return (
     <>
-      <div className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing">
+      <DropIndicator beforeId={id} column={column} />
+
+      <div
+        draggable="true"
+        className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
+      >
         <p className="text-sm text-neutral-100">{title}</p>
       </div>
     </>
+  );
+};
+
+const DropIndicator = ({
+  beforeId,
+  column,
+}: {
+  beforeId: string;
+  column: string;
+}) => {
+  return (
+    <div
+      data-before={beforeId || "-1"}
+      data-column={column}
+      className="my-0.5 h-0.5 w-full bg-violet-400 opacity-100"
+    ></div>
   );
 };
 
