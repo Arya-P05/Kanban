@@ -10,7 +10,7 @@ const Kanban = () => {
 };
 
 const Board = () => {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState(DEFAULT_CARDS);
 
   return (
     <div className="flex h-full w-full gap-3 overflow-scroll p-12">
@@ -49,11 +49,15 @@ const Board = () => {
 const Column = ({ title, headingColour, column, cards, setCards }) => {
   const [active, setActive] = useState(false);
 
+  const filteredCards = cards.filter((card) => card.column === column);
+
   return (
     <div className="w-56 shrink-0">
       <div className="mb-3 flex items-center justify-between">
         <h3 className={`font-medium ${headingColour}`}>{title}</h3>
-        <span className="rounded text-sm text-neutral-400">{cards.length}</span>
+        <span className="rounded text-sm text-neutral-400">
+          {filteredCards.length}
+        </span>
       </div>
       <div
         className={`h-full w-full transition-colors ${
