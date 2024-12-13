@@ -1,5 +1,8 @@
 "use client";
+
 import React, { useState } from "react";
+import { FiTrash } from "react-icons/fi";
+import { FaFire } from "react-icons/fa";
 
 const Kanban = () => {
   return (
@@ -141,7 +144,17 @@ const BurnBarrel = ({
           ? "border-red-800 bg-red-800/20 text-red-500"
           : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
       }`}
-    ></div>
+    >
+      {active ? (
+        <span className="animate-bounce">
+          <FaFire />
+        </span>
+      ) : (
+        <span>
+          <FiTrash />
+        </span>
+      )}
+    </div>
   );
 };
 
