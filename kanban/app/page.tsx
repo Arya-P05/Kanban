@@ -20,23 +20,30 @@ const Board = () => {
     <div className="h-full w-full flex items-center justify-center bg-neutral-900">
       <div className="flex gap-3 p-12 overflow-x-scroll">
         <Column
-          title="3 Points"
+          title="Backlog"
           column="backlog"
-          headingColor="text-green-500"
+          headingColor="text-neutral-400"
           cards={cards}
           setCards={setCards}
         />
         <Column
-          title="2 Points"
+          title="To-Do"
           column="todo"
-          headingColor="text-yellow-400"
+          headingColor="text-yellow-200"
           cards={cards}
           setCards={setCards}
         />
         <Column
-          title="1 Point"
+          title="Doing"
           column="doing"
-          headingColor="text-red-400"
+          headingColor="text-blue-400"
+          cards={cards}
+          setCards={setCards}
+        />
+        <Column
+          title="Done"
+          column="done"
+          headingColor="text-green-400"
           cards={cards}
           setCards={setCards}
         />
@@ -323,6 +330,7 @@ const DEFAULT_TASKS = [
   { title: "SOX compliance checklist", id: "2", column: "backlog" },
   { title: "[SPIKE] Migrate to Azure", id: "3", column: "backlog" },
   { title: "Document Notifications service", id: "4", column: "backlog" },
+
   // TODO
   {
     title: "Research DB options for new microservice",
