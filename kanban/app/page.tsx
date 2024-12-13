@@ -15,4 +15,8 @@ const Board = () => {
   return <div className="flex h-full w-full gap-3 overflow-scroll p-12"></div>;
 };
 
+const Column = ({ title, headingColour, column, cards, setCards }) => {
+  return <div></div>;
+};
+
 export default Kanban;
