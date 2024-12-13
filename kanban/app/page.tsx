@@ -47,7 +47,14 @@ const Board = () => {
 };
 
 const Column = ({ title, headingColour, column, cards, setCards }) => {
-  return <div className="width-56 shrink-0"></div>;
+  return (
+    <div className="width-56 shrink-0">
+      <div className="mb-3 flex items-center justify-between">
+        <h3 className={`font-medium ${headingColour}`}>{title}</h3>
+        <span className="rounded text-sm text-neutral-400">{cards.length}</span>
+      </div>
+    </div>
+  );
 };
 
 export default Kanban;
