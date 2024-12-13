@@ -47,6 +47,8 @@ const Board = () => {
 };
 
 const Column = ({ title, headingColour, column, cards, setCards }) => {
+  const [active, setActive] = useState(false);
+
   return (
     <div className="width-56 shrink-0">
       <div className="mb-3 flex items-center justify-between">
