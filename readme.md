@@ -11,6 +11,14 @@ This is an interactive Kanban board built with React, TypeScript, and Framer Mot
 - **Visual Feedback**: Highlights drop targets and transitions.
 - **Mobile-Friendly**: Optimized for small screens.
 
+## Technologies
+
+- **React**: UI components.
+- **TypeScript**: Strong typing.
+- **Framer Motion**: Smooth animations.
+- **React Icons**: UI icons.
+- **Tailwind CSS**: Modern styling.
+
 ---
 
 For any questions or suggestions, feel free to create an issue in the repository.
