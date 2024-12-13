@@ -14,7 +14,7 @@ const Kanban = () => {
 };
 
 const Board = () => {
-  const [cards, setCards] = useState(DEFAULT_CARDS);
+  const [cards, setCards] = useState(DEFAULT_TEAMS);
 
   return (
     <div className="h-full w-full flex items-center justify-center bg-neutral-900">
@@ -317,7 +317,7 @@ const AddCard = ({ column, setCards }) => {
   );
 };
 
-const DEFAULT_CARDS = [
+const DEFAULT_TEAMS = [
   { title: "Team Yash", id: "1", column: "3pt" },
   { title: "Team Preet", id: "2", column: "3pt" },
   { title: "Team Rushi", id: "3", column: "3pt" },
