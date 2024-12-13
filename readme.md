@@ -43,6 +43,15 @@ This is an interactive Kanban board built with React, TypeScript, and Framer Mot
    http://localhost:3000
    ```
 
+## Key Components
+
+- `Kanban.tsx`: Main board component.
+- `Board`: Manages columns and state.
+- `Column`: Displays tasks.
+- `Card`: Task component.
+- `BurnBarrel`: Deletes tasks.
+- `AddCard`: Adds new tasks.
+
 ---
 
 For any questions or suggestions, feel free to create an issue in the repository.
