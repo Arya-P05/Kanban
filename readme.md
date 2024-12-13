@@ -19,13 +19,29 @@ This is an interactive Kanban board built with React, TypeScript, and Framer Mot
 - **React Icons**: UI icons.
 - **Tailwind CSS**: Modern styling.
 
-## Technologies
+## Setup
 
-- **React**: UI components.
-- **TypeScript**: Strong typing.
-- **Framer Motion**: Smooth animations.
-- **React Icons**: UI icons.
-- **Tailwind CSS**: Modern styling.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/kanban-board.git
+   cd kanban-board
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+3. Start the server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+4. Open:
+   ```
+   http://localhost:3000
+   ```
 
 ---
 
