@@ -25,8 +25,8 @@ This is an interactive Kanban board built with React, TypeScript, and Framer Mot
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/kanban-board.git
-   cd kanban-board
+   git clone https://github.com/Arya-P05/Kanban.git
+   cd kanban
    ```
 2. Install dependencies:
    ```bash
