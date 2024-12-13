@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 const Kanban = () => {
   return (
@@ -9,6 +10,8 @@ const Kanban = () => {
 };
 
 const Board = () => {
+  const [cards, setCards] = useState([]);
+
   return <div className="flex h-full w-full gap-3 overflow-scroll p-12"></div>;
 };
 
