@@ -71,6 +71,10 @@ This is an interactive Kanban board built with React, TypeScript, and Framer Mot
 - **Custom Columns**: Allow creation and renaming.
 - **Enhanced Animations**: Add advanced effects.
 
+## License
+
+Open-source.
+
 ---
 
 For any questions or suggestions, feel free to create an issue in the repository.
