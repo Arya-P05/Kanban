@@ -14,7 +14,7 @@ const Kanban = () => {
 };
 
 const Board = () => {
-  const [cards, setCards] = useState(DEFAULT_TEAMS);
+  const [cards, setCards] = useState(DEFAULT_TASKS);
 
   return (
     <div className="h-full w-full flex items-center justify-center bg-neutral-900">
@@ -309,7 +309,7 @@ const AddCard = ({ column, setCards }) => {
           onClick={() => setAdding(true)}
           className="flex w-full items-center gap-1.5 px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:text-neutral-50"
         >
-          <span>Add team</span>
+          <span>Add task</span>
           <FiPlus />
         </motion.button>
       )}
@@ -317,7 +317,7 @@ const AddCard = ({ column, setCards }) => {
   );
 };
 
-const DEFAULT_TEAMS = [
+const DEFAULT_TASKS = [
   // BACKLOG
   { title: "Look into render bug in dashboard", id: "1", column: "backlog" },
   { title: "SOX compliance checklist", id: "2", column: "backlog" },
