@@ -52,6 +52,12 @@ This is an interactive Kanban board built with React, TypeScript, and Framer Mot
 - `BurnBarrel`: Deletes tasks.
 - `AddCard`: Adds new tasks.
 
+## Usage
+
+1. **Add Tasks**: Click "Add team," enter a title, and click "Add."
+2. **Move Tasks**: Drag between or within columns.
+3. **Delete Tasks**: Drag tasks to the "Burn Barrel."
+
 ---
 
 For any questions or suggestions, feel free to create an issue in the repository.
