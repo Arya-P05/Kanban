@@ -193,10 +193,10 @@ const Column = ({
   );
 
   return (
-    <div className="w-56 shrink-0">
+    <div className="w-64 shrink-0">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className={`font-medium ${headingColor}`}>{title}</h3>
-        <span className="rounded text-sm text-neutral-400">
+        <h3 className={`font-large ${headingColor}`}>{title}</h3>
+        <span className="rounded text-md text-neutral-400">
           {filteredCards.length}
         </span>
       </div>
@@ -229,7 +229,7 @@ const Card = ({ title, id, column, handleDragStart }) => {
         onDragStart={(e) => handleDragStart(e, { title, id, column })}
         className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
       >
-        <p className="text-sm text-neutral-100">{title}</p>
+        <p className="text-md text-neutral-100">{title}</p>
       </motion.div>
     </>
   );
@@ -270,7 +270,7 @@ const BurnBarrel = ({ setCards }) => {
       onDrop={handleDragEnd}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
-      className={`mt-10 grid h-56 w-56 shrink-0 place-content-center rounded border text-3xl ${
+      className={`mt-10 grid w-64 h-64 shrink-0 place-content-center rounded border text-3xl ${
         active
           ? "border-red-800 bg-red-800/20 text-red-500"
           : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
