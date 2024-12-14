@@ -30,10 +30,12 @@ const Board = () => {
     setHasChecked(true);
   }, []);
 
-  // Set loading to false once the cards are fetched
   useEffect(() => {
     if (hasChecked) {
-      setLoading(false);
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 350); // i feel like it looks bad if its too fast so i added a delay
+      return () => clearTimeout(timer);
     }
   }, [hasChecked]);
 
@@ -41,7 +43,6 @@ const Board = () => {
     return (
       <div className="h-full w-full flex items-center justify-center bg-neutral-900">
         <span className="text-neutral-400">Loading...</span>{" "}
-        {/* You can replace this with a spinner */}
       </div>
     );
   }
@@ -289,7 +290,7 @@ const BurnBarrel = ({ setCards }) => {
       className={`ml-12 mt-10 grid w-64 h-64 shrink-0 place-content-center rounded border text-3xl ${
         active
           ? "border-red-800 bg-red-800/20 text-red-500"
-          : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
+          : "border-neutral-700 bg-neutral-800/20 text-neutral-700"
       }`}
     >
       {active ? <FaFire className="animate-bounce" /> : <FiTrash />}
