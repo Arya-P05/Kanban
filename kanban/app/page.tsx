@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
@@ -14,7 +14,21 @@ const Kanban = () => {
 };
 
 const Board = () => {
-  const [cards, setCards] = useState(DEFAULT_TASKS);
+  const [cards, setCards] = useState([]);
+
+  const [hasChecked, setHasChecked] = useState(false);
+
+  useEffect(() => {
+    if (hasChecked) {
+      localStorage.setItem("kanban", JSON.stringify(cards));
+    }
+  }, [cards]);
+
+  useEffect(() => {
+    const cardData = localStorage.getItem("kanban");
+    setCards(cardData ? JSON.parse(cardData) : DEFAULT_TASKS);
+    setHasChecked(true);
+  }, []);
 
   return (
     <div className="h-full w-full flex items-center justify-center bg-neutral-900">
@@ -173,7 +187,10 @@ const Column = ({
     setActive(false);
   };
 
-  const filteredCards = cards.filter((c) => c.column === column);
+  const filteredCards = useMemo(
+    () => cards.filter((c) => c.column === column),
+    [cards, column]
+  );
 
   return (
     <div className="w-56 shrink-0">
