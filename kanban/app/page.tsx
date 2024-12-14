@@ -15,8 +15,8 @@ const Kanban = () => {
 
 const Board = () => {
   const [cards, setCards] = useState([]);
-
   const [hasChecked, setHasChecked] = useState(false);
+  const [loading, setLoading] = useState(true); // Add loading state
 
   useEffect(() => {
     if (hasChecked) {
@@ -29,6 +29,22 @@ const Board = () => {
     setCards(cardData ? JSON.parse(cardData) : DEFAULT_TASKS);
     setHasChecked(true);
   }, []);
+
+  // Set loading to false once the cards are fetched
+  useEffect(() => {
+    if (hasChecked) {
+      setLoading(false);
+    }
+  }, [hasChecked]);
+
+  if (loading) {
+    return (
+      <div className="h-full w-full flex items-center justify-center bg-neutral-900">
+        <span className="text-neutral-400">Loading...</span>{" "}
+        {/* You can replace this with a spinner */}
+      </div>
+    );
+  }
 
   return (
     <div className="h-full w-full flex items-center justify-center bg-neutral-900">
@@ -270,7 +286,7 @@ const BurnBarrel = ({ setCards }) => {
       onDrop={handleDragEnd}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
-      className={`mt-10 grid w-64 h-64 shrink-0 place-content-center rounded border text-3xl ${
+      className={`ml-12 mt-10 grid w-64 h-64 shrink-0 place-content-center rounded border text-3xl ${
         active
           ? "border-red-800 bg-red-800/20 text-red-500"
           : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
