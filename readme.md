@@ -2,7 +2,8 @@
 
 This is an interactive Kanban board built with React, TypeScript, and Framer Motion. Users can create, manage, and organize tasks across columns using drag-and-drop functionality with visual feedback.
 
-<img width="1628" alt="Screenshot 2024-12-13 at 1 59 03 AM" src="https://github.com/user-attachments/assets/feef10b6-6ec2-46bd-b220-7538d6e0e1ec" />
+<img width="1553" alt="Screenshot 2024-12-14 at 2 53 51 AM" src="https://github.com/user-attachments/assets/af4982cf-44ca-4e10-81d9-1579592c928a" />
+
 
 ## Features
 
