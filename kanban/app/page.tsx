@@ -4,14 +4,12 @@ import React, { useEffect, useState, useMemo } from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
-import styles from "./kanban.module.css";
+import "./globals.css";
 
 const Kanban = () => {
   return (
-    <div className={styles.noScrollbar}>
-      <div className="h-screen w-full bg-neutral-900 text-neutral-50">
-        <Board />
-      </div>
+    <div className="h-screen w-full bg-neutral-900 text-neutral-50">
+      <Board />
     </div>
   );
 };
@@ -58,7 +56,7 @@ const Board = () => {
 
   return (
     <div className="h-full w-full flex items-center justify-center bg-neutral-900">
-      <div className="flex gap-3 p-12 overflow-x-scroll">
+      <div className="flex gap-3 p-12 overflow-x-scroll no-scrollbar">
         <Column
           title="Backlog"
           column="backlog"

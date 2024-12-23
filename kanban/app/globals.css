@@ -25,3 +25,14 @@ body {
     text-wrap: balance;
   }
 }
+
+.no-scrollbar {
+  overflow-y: scroll; /* Enable scrolling */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+
+  /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
