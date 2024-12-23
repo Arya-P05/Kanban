@@ -90,13 +90,13 @@ const Board = () => {
   );
 };
 
-interface ColumnProps {
+type ColumnProps = {
   title: string;
   headingColor: string;
   cards: Card[];
   column: string;
   setCards: React.Dispatch<React.SetStateAction<Card[]>>;
-}
+};
 
 const Column = ({
   title,
@@ -111,7 +111,7 @@ const Column = ({
     e.dataTransfer.setData("cardId", card.id);
   };
 
-  interface DragEndEvent extends React.DragEvent<HTMLDivElement> {}
+  type DragEndEvent = React.DragEvent<HTMLDivElement>;
 
   const handleDragEnd = (e: DragEndEvent) => {
     const cardId = e.dataTransfer.getData("cardId");
@@ -148,7 +148,7 @@ const Column = ({
     }
   };
 
-  interface DragEvent extends React.DragEvent<HTMLDivElement> {}
+  type DragEvent = React.DragEvent<HTMLDivElement>;
 
   const handleDragOver = (e: DragEvent) => {
     e.preventDefault();
@@ -175,10 +175,10 @@ const Column = ({
     (el.element as HTMLElement).style.opacity = "1";
   };
 
-  interface NearestIndicator {
+  type NearestIndicator = {
     offset: number;
     element: Element;
-  }
+  };
 
   const getNearestIndicator = (
     e: React.DragEvent<HTMLDivElement>,
@@ -249,12 +249,12 @@ const Column = ({
   );
 };
 
-interface CardProps {
+type CardProps = {
   title: string;
   id: string;
   column: string;
   handleDragStart: (e: React.DragEvent<HTMLDivElement>, card: Card) => void;
-}
+};
 
 const Card = ({ title, id, column, handleDragStart }: CardProps) => {
   return (
@@ -273,10 +273,10 @@ const Card = ({ title, id, column, handleDragStart }: CardProps) => {
   );
 };
 
-interface DropIndicatorProps {
+type DropIndicatorProps = {
   beforeId: string | null;
   column: string;
-}
+};
 
 const DropIndicator = ({ beforeId, column }: DropIndicatorProps) => {
   return (
@@ -288,14 +288,14 @@ const DropIndicator = ({ beforeId, column }: DropIndicatorProps) => {
   );
 };
 
-interface BurnBarrelProps {
+type BurnBarrelProps = {
   setCards: React.Dispatch<React.SetStateAction<Card[]>>;
-}
+};
 
 const BurnBarrel = ({ setCards }: BurnBarrelProps) => {
   const [active, setActive] = useState(false);
 
-  interface DragEvent extends React.DragEvent<HTMLDivElement> {}
+  type DragEvent = React.DragEvent<HTMLDivElement>;
 
   const handleDragOver = (e: DragEvent) => {
     e.preventDefault();
