@@ -13,8 +13,14 @@ const Kanban = () => {
   );
 };
 
+type Card = {
+  title: string;
+  id: string;
+  column: string;
+};
+
 const Board = () => {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState<Card[]>([]);
   const [hasChecked, setHasChecked] = useState(false);
   const [loading, setLoading] = useState(true); // Add loading state
 
@@ -84,12 +90,6 @@ const Board = () => {
   );
 };
 
-interface Card {
-  title: string;
-  id: string;
-  column: string;
-}
-
 interface ColumnProps {
   title: string;
   headingColor: string;
@@ -111,7 +111,9 @@ const Column = ({
     e.dataTransfer.setData("cardId", card.id);
   };
 
-  const handleDragEnd = (e) => {
+  interface DragEndEvent extends React.DragEvent<HTMLDivElement> {}
+
+  const handleDragEnd = (e: DragEndEvent) => {
     const cardId = e.dataTransfer.getData("cardId");
 
     setActive(false);
@@ -120,7 +122,7 @@ const Column = ({
     const indicators = getIndicators();
     const { element } = getNearestIndicator(e, indicators);
 
-    const before = element.dataset.before || "-1";
+    const before = (element as HTMLElement).dataset.before || "-1";
 
     if (before !== cardId) {
       let copy = [...cards];
@@ -146,7 +148,9 @@ const Column = ({
     }
   };
 
-  const handleDragOver = (e) => {
+  interface DragEvent extends React.DragEvent<HTMLDivElement> {}
+
+  const handleDragOver = (e: DragEvent) => {
     e.preventDefault();
     highlightIndicator(e);
 
@@ -161,21 +165,29 @@ const Column = ({
     });
   };
 
-  const highlightIndicator = (e) => {
-    const indicators = getIndicators();
+  const highlightIndicator = (e: React.DragEvent<HTMLDivElement>) => {
+    const indicators: Element[] = getIndicators();
 
-    clearHighlights(indicators);
+    clearHighlights(indicators as HTMLElement[]);
 
     const el = getNearestIndicator(e, indicators);
 
-    el.element.style.opacity = "1";
+    (el.element as HTMLElement).style.opacity = "1";
   };
 
-  const getNearestIndicator = (e, indicators) => {
+  interface NearestIndicator {
+    offset: number;
+    element: Element;
+  }
+
+  const getNearestIndicator = (
+    e: React.DragEvent<HTMLDivElement>,
+    indicators: Element[]
+  ): NearestIndicator => {
     const DISTANCE_OFFSET = 50;
 
-    const el = indicators.reduce(
-      (closest, child) => {
+    const el: NearestIndicator = indicators.reduce(
+      (closest: NearestIndicator, child: Element) => {
         const box = child.getBoundingClientRect();
 
         const offset = e.clientY - (box.top + DISTANCE_OFFSET);
@@ -195,8 +207,10 @@ const Column = ({
     return el;
   };
 
-  const getIndicators = () => {
-    return Array.from(document.querySelectorAll(`[data-column="${column}"]`));
+  const getIndicators = (): HTMLElement[] => {
+    return Array.from(
+      document.querySelectorAll(`[data-column="${column}"]`)
+    ) as HTMLElement[];
   };
 
   const handleDragLeave = () => {
@@ -235,7 +249,14 @@ const Column = ({
   );
 };
 
-const Card = ({ title, id, column, handleDragStart }) => {
+interface CardProps {
+  title: string;
+  id: string;
+  column: string;
+  handleDragStart: (e: React.DragEvent<HTMLDivElement>, card: Card) => void;
+}
+
+const Card = ({ title, id, column, handleDragStart }: CardProps) => {
   return (
     <>
       <DropIndicator beforeId={id} column={column} />
@@ -243,7 +264,7 @@ const Card = ({ title, id, column, handleDragStart }) => {
         layout
         layoutId={id}
         draggable="true"
-        onDragStart={(e) => handleDragStart(e, { title, id, column })}
+        onDragStart={(e: any) => handleDragStart(e, { title, id, column })}
         className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
       >
         <p className="text-md text-neutral-100">{title}</p>
@@ -252,7 +273,12 @@ const Card = ({ title, id, column, handleDragStart }) => {
   );
 };
 
-const DropIndicator = ({ beforeId, column }) => {
+interface DropIndicatorProps {
+  beforeId: string | null;
+  column: string;
+}
+
+const DropIndicator = ({ beforeId, column }: DropIndicatorProps) => {
   return (
     <div
       data-before={beforeId || "-1"}
@@ -262,10 +288,16 @@ const DropIndicator = ({ beforeId, column }) => {
   );
 };
 
-const BurnBarrel = ({ setCards }) => {
+interface BurnBarrelProps {
+  setCards: React.Dispatch<React.SetStateAction<Card[]>>;
+}
+
+const BurnBarrel = ({ setCards }: BurnBarrelProps) => {
   const [active, setActive] = useState(false);
 
-  const handleDragOver = (e) => {
+  interface DragEvent extends React.DragEvent<HTMLDivElement> {}
+
+  const handleDragOver = (e: DragEvent) => {
     e.preventDefault();
     setActive(true);
   };
@@ -274,7 +306,7 @@ const BurnBarrel = ({ setCards }) => {
     setActive(false);
   };
 
-  const handleDragEnd = (e) => {
+  const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
     const cardId = e.dataTransfer.getData("cardId");
 
     setCards((pv) => pv.filter((c) => c.id !== cardId));
@@ -298,16 +330,22 @@ const BurnBarrel = ({ setCards }) => {
   );
 };
 
-const AddCard = ({ column, setCards }) => {
+const AddCard = ({
+  column,
+  setCards,
+}: {
+  column: string;
+  setCards: React.Dispatch<React.SetStateAction<Card[]>>;
+}) => {
   const [text, setText] = useState("");
   const [adding, setAdding] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!text.trim().length) return;
 
-    const newCard = {
+    const newCard: Card = {
       column,
       title: text.trim(),
       id: Math.random().toString(),
