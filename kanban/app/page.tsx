@@ -264,7 +264,9 @@ const Card = ({ title, id, column, handleDragStart }: CardProps) => {
         layout
         layoutId={id}
         draggable="true"
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         onDragStart={(e: any) => handleDragStart(e, { title, id, column })}
+        /* eslint-enable @typescript-eslint/no-explicit-any */
         className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
       >
         <p className="text-md text-neutral-100">{title}</p>
