@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Arya's Kanban Board",
+  title: "Kanban Board",
 };
 
 export default function RootLayout({
