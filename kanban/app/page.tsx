@@ -28,7 +28,7 @@ const Board = () => {
     if (hasChecked) {
       localStorage.setItem("kanban", JSON.stringify(cards));
     }
-  }, [cards]);
+  }, [cards, hasChecked]);
 
   useEffect(() => {
     const cardData = localStorage.getItem("kanban");
