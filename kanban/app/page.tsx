@@ -405,7 +405,6 @@ const DEFAULT_TASKS = [
   // { title: "SOX compliance checklist", id: "2", column: "backlog" },
   // { title: "[SPIKE] Migrate to Azure", id: "3", column: "backlog" },
   // { title: "Document Notifications service", id: "4", column: "backlog" },
-
   // TODO
   // {
   //   title: "Research DB options for new microservice",
@@ -414,7 +413,6 @@ const DEFAULT_TASKS = [
   // },
   // { title: "Postmortem for outage", id: "6", column: "todo" },
   // { title: "Sync with product on Q3 roadmap", id: "7", column: "todo" },
-
   // DOING
   // {
   //   title: "Refactor context providers to use Zustand",
@@ -423,11 +421,11 @@ const DEFAULT_TASKS = [
   // },
   // { title: "Add logging to daily CRON", id: "9", column: "doing" },
   // DONE
-  {
-    title: "Set up DD dashboards for Lambda listener",
-    id: "10",
-    column: "done",
-  },
+  // {
+  //   title: "Set up DD dashboards for Lambda listener",
+  //   id: "10",
+  //   column: "done",
+  // },
 ];
 
 export default Kanban;
