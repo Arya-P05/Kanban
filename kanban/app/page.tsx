@@ -41,7 +41,7 @@ const Board = () => {
     if (hasChecked) {
       const timer = setTimeout(() => {
         setLoading(false);
-      }, 350); // i feel like it looks bad if its too fast so i added a delay
+      }, 350); // i feel like it looks bad if its too fast so i added a slight delay
       return () => clearTimeout(timer);
     }
   }, [hasChecked]);
